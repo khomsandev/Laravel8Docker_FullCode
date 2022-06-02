@@ -93,3 +93,20 @@ services:
     tty: true
     networks:
       - web_network
+
+  # React App Service
+  reactapp:
+    build: frontend/
+    image: react-app
+    container_name: react_app
+    restart: always
+    volumes:
+      - ./frontend:/usr/app
+      - /usr/app/node_modules #Bookmark Volume ไม่ให้แสดงผลที่ฝั่ง Host
+    ports:
+      # - "3000:3000"
+      - "8181:80"
+    environment:
+      - CHOKIDAR_USERPOLLING=true
+    networks:
+      - web_network
