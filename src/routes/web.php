@@ -33,3 +33,7 @@ Route::get('/retrieve', function() {
 Route::get('/send-email', function() {
     Mail::to('khomsan.pap@thaidev.co')->send(new TestMail);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
