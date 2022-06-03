@@ -263,6 +263,8 @@ docker-compose exec app composer require predis/predis
 
 แก้ไฟล์ src/routes/web.php เพิ่ม Route
 
+use Illuminate\Support\Facades\Redis;
+
 //Test Redis
 Route::get('/store', function() {
     Redis::set('Bangkok', 'Krung Thep Maha Nakhon');
